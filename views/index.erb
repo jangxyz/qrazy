@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>QR-Code Generator</title>
+</head>
+
+<body>
+<div id="ctnr">
+    <div id="inner">
+    	<div id="img" style="float: left; border-right: 2px solid #DCE1E1; padding: 10px 3em;"> 
+    	    <img id="qrcode" src="<%= @filename %>" width="250" height="250" alt="qrcode" style="border: 2px solid #DCE1E1;" /> 
+        </div> 
+    </div> 
+    <div id="form" style="float: left; padding: 10px 10px 10px 5em;">
+        <h1>QR-Code Generator</h1>
+        <form method="post" action="/" onsubmit="return formatcontent(this);">
+        	<fieldset>
+        		<legend>Content type:</legend>
+        		<p>
+        			<input  checked="checked"   onclick="return radioClick(event);" type="radio" name="qr_cnt_type" id="qr_cnt_type_url" value="qr_cnt_type_url" />
+        			<label for="qr_cnt_type_url">URL</label>
+        			
+        			<input  onclick="return radioClick(event);" type="radio" name="qr_cnt_type" id="qr_cnt_type_text" value="qr_cnt_type_text" />
+        			<label for="qr_cnt_type_text">Text</label>
+        			
+        			<input  onclick="return radioClick(event);" type="radio" name="qr_cnt_type" id="qr_cnt_type_tel" value="qr_cnt_type_tel" />
+        			<label for="qr_cnt_type_tel">Phone Number</label>
+        			
+        			<input   onclick="return radioClick(event);" type="radio" name="qr_cnt_type" id="qr_cnt_type_sms" value="qr_cnt_type_sms" />
+        			<label for="qr_cnt_type_sms">SMS</label>
+        		</p>
+        	</fieldset>
+        	<fieldset>
+        		<legend>Content:</legend>
+        		<p>
+        			<span id="fs">
+        				
+        						<label for="qr_cnt">URL:</label>	
+        						<input type="text" name="qr_cnt" id="qr_cnt" value="http://" />
+        					
+        			</span>
+        			
+        		</p>
+        	</fieldset>
+        	<p>
+        		<label for="qr_size">Size:</label>
+        		<select name="qr_size" id="qr_size">
+        			<option value="5">S</option>
+        			<option value="6">M</option>
+        			<option value="8" selected="selected">L</option>
+        			<option value="12">XL</option>
+        		</select>
+        	</p>
+        	<p><input type="submit" value="Generate!" /></p>
+        </form>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+</div>
+</body>
+</html>
